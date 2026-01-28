@@ -1,0 +1,12 @@
+.vs/
+[Bb]in/
+[Oo]bj/
+*.user
+*.userosscache
+*.sln.docstates
+
+packages/
+
+# Archivos temporales de SQL Server (si usas bases de datos locales en la carpeta)
+*.mdf
+*.ldf
