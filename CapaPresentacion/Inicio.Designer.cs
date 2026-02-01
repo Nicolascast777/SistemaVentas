@@ -66,7 +66,7 @@
             this.menuacercade});
             this.menu.Location = new System.Drawing.Point(0, 60);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(751, 73);
+            this.menu.Size = new System.Drawing.Size(982, 73);
             this.menu.TabIndex = 0;
             this.menu.Text = "menuStrip1";
             // 
@@ -108,7 +108,7 @@
             this.submenucategoria.IconSize = 16;
             this.submenucategoria.Image = ((System.Drawing.Image)(resources.GetObject("submenucategoria.Image")));
             this.submenucategoria.Name = "submenucategoria";
-            this.submenucategoria.Size = new System.Drawing.Size(180, 22);
+            this.submenucategoria.Size = new System.Drawing.Size(125, 22);
             this.submenucategoria.Text = "Categoria";
             this.submenucategoria.Click += new System.EventHandler(this.submenucategoria_Click);
             // 
@@ -119,7 +119,7 @@
             this.submenuproducto.IconSize = 16;
             this.submenuproducto.Image = ((System.Drawing.Image)(resources.GetObject("submenuproducto.Image")));
             this.submenuproducto.Name = "submenuproducto";
-            this.submenuproducto.Size = new System.Drawing.Size(180, 22);
+            this.submenuproducto.Size = new System.Drawing.Size(125, 22);
             this.submenuproducto.Text = "Producto";
             this.submenuproducto.Click += new System.EventHandler(this.submenuproducto_Click);
             // 
@@ -261,7 +261,7 @@
             this.menutitulo.Location = new System.Drawing.Point(0, 0);
             this.menutitulo.Name = "menutitulo";
             this.menutitulo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menutitulo.Size = new System.Drawing.Size(751, 60);
+            this.menutitulo.Size = new System.Drawing.Size(982, 60);
             this.menutitulo.TabIndex = 1;
             this.menutitulo.Text = "menuStrip2";
             // 
@@ -282,7 +282,7 @@
             this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contenedor.Location = new System.Drawing.Point(0, 133);
             this.contenedor.Name = "contenedor";
-            this.contenedor.Size = new System.Drawing.Size(751, 404);
+            this.contenedor.Size = new System.Drawing.Size(982, 392);
             this.contenedor.TabIndex = 3;
             // 
             // label2
@@ -291,7 +291,7 @@
             this.label2.BackColor = System.Drawing.Color.SteelBlue;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(633, 28);
+            this.label2.Location = new System.Drawing.Point(567, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 15);
             this.label2.TabIndex = 4;
@@ -303,7 +303,7 @@
             this.lblusuario.BackColor = System.Drawing.Color.SteelBlue;
             this.lblusuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblusuario.ForeColor = System.Drawing.Color.White;
-            this.lblusuario.Location = new System.Drawing.Point(684, 28);
+            this.lblusuario.Location = new System.Drawing.Point(618, 28);
             this.lblusuario.Name = "lblusuario";
             this.lblusuario.Size = new System.Drawing.Size(61, 15);
             this.lblusuario.TabIndex = 5;
@@ -313,7 +313,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(751, 537);
+            this.ClientSize = new System.Drawing.Size(982, 525);
             this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.contenedor);
