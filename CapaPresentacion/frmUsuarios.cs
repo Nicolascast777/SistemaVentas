@@ -77,8 +77,6 @@ namespace CapaPresentacion
                     item.Estado == true ? 1 : 0 ,
                     item.Estado == true ? "Activo" : "No Activo"
                 });
-
-
             }
             
 
@@ -263,8 +261,7 @@ namespace CapaPresentacion
 
         private void btnbuscar_Click(object sender, EventArgs e)
         {
-
-
+            
             string columnaFiltro = ((OpcionCombo)cbobusqueda.SelectedItem).Valor.ToString();
 
             if (dgvdata.Rows.Count > 0)
@@ -286,6 +283,11 @@ namespace CapaPresentacion
             {
                 row.Visible = true;
             }
+        }
+
+        private void btnlimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
         }
     }
 }
