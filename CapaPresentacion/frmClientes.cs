@@ -36,8 +36,7 @@ namespace CapaPresentacion
             cboestado.SelectedIndex = 0;
 
 
-            List<Rol> listaRol = new CN_Rol().Listar();
-            
+                       
 
             foreach (DataGridViewColumn columna in dgvdata.Columns)
             {

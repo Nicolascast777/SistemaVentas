@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using CapaEntidad;
-
+using System.Windows.Forms;
 namespace CapaDatos
 {
     public class CD_Permiso
@@ -56,6 +56,7 @@ namespace CapaDatos
                 }
                 catch (Exception ex)
                 {
+                    MessageBox.Show(ex.ToString());
 
                     lista = new List<Permiso>();
                 }

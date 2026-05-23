@@ -14,22 +14,17 @@ namespace CapaDatos
 
 
 
-        public List<Usuario> Listar()
+        public List<Proveedor> Listar()
         {
-            List<Usuario> lista = new List<Usuario>();
+            List<Proveedor> lista = new List<Proveedor>();
 
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select u.IdUsuario,u.Documento,u.NombreCompleto,u.Correo,u.Clave,u.Estado,r.IdRol,r.Descripcion from usuario u");
-                    query.AppendLine("inner join rol r on r.IdRol = u.IdRol");
-
-
-
-
-
+                    query.AppendLine("SELECT IdProveedor, Documento, RazonSocial, Correo, Telefono, Estado FROM PROVEEDOR");
+                    
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
 
@@ -41,16 +36,14 @@ namespace CapaDatos
                         while (dr.Read())
                         {
 
-                            lista.Add(new Usuario()
+                            lista.Add(new Proveedor()
                             {
-                                IdUsuario = Convert.ToInt32(dr["IdUsuario"]),
+                                IdProveedor = Convert.ToInt32(dr["IdProveedor"]),
                                 Documento = dr["Documento"].ToString(),
-                                NombreCompleto = dr["NombreCompleto"].ToString(),
+                                RazonSocial = dr["RazonSocial"].ToString(),
                                 Correo = dr["Correo"].ToString(),
-                                Clave = dr["Clave"].ToString(),
-                                Estado = Convert.ToBoolean(dr["Estado"]),
-                                oRol = new Rol() { IdRol = Convert.ToInt32(dr["IdRol"]), Descripcion = dr["Descripcion"].ToString(), }
-
+                                Telefono = dr["Telefono"].ToString(),
+                                Estado = Convert.ToBoolean(dr["Estado"])                                
                             });
                         }
 
@@ -62,32 +55,30 @@ namespace CapaDatos
                 catch (Exception ex)
                 {
 
-                    lista = new List<Usuario>();
+                    lista = new List<Proveedor>();
                 }
             }
             return lista;
         }
 
 
-        public int Registrar(Usuario obj, out string Mensaje)
+        public int Registrar(Proveedor obj, out string Mensaje)
         {
-            int idusuariogenerado = 0;
+            int idProveedorgenerado = 0;
             Mensaje = string.Empty;
 
             try
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-
-                    SqlCommand cmd = new SqlCommand("SP_REGISTRARUSUARIO", oconexion);
+                    SqlCommand cmd = new SqlCommand("sp_RegistrarProveedor", oconexion);
                     // Se agregaron los @ que faltaban
                     cmd.Parameters.AddWithValue("@Documento", obj.Documento);
-                    cmd.Parameters.AddWithValue("@NombreCompleto", obj.NombreCompleto);
+                    cmd.Parameters.AddWithValue("@RazonSocial", obj.RazonSocial);
                     cmd.Parameters.AddWithValue("@Correo", obj.Correo);
-                    cmd.Parameters.AddWithValue("@Clave", obj.Clave);
-                    cmd.Parameters.AddWithValue("@IdRol", obj.oRol.IdRol);
+                    cmd.Parameters.AddWithValue("@Telefono", obj.Telefono);
                     cmd.Parameters.AddWithValue("@Estado", obj.Estado);
-                    cmd.Parameters.Add("@IdUsuarioResultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     // Se cambió Text por StoredProcedure
@@ -96,22 +87,22 @@ namespace CapaDatos
                     oconexion.Open();
                     cmd.ExecuteNonQuery();
 
-                    idusuariogenerado = Convert.ToInt32(cmd.Parameters["@IdUsuarioResultado"].Value);
+                    idProveedorgenerado = Convert.ToInt32(cmd.Parameters["@Resultado"].Value);
                     Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
                 }
             }
             catch (Exception ex)
             {
-                idusuariogenerado = 0;
+                idProveedorgenerado = 0;
                 Mensaje = ex.Message;
             }
-            return idusuariogenerado;
+            return idProveedorgenerado;
         }
 
 
 
 
-        public bool Editar(Usuario obj, out string Mensaje)
+        public bool Editar(Proveedor obj, out string Mensaje)
         {
             bool respuesta = false;
             Mensaje = string.Empty;
@@ -120,17 +111,16 @@ namespace CapaDatos
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand cmd = new SqlCommand("SP_EDITARUSUARIO", oconexion);
+                    SqlCommand cmd = new SqlCommand("sp_ModificarProveedor", oconexion);
                     // Se agregaron los @ que faltaban
-                    cmd.Parameters.AddWithValue("@IdUsuario", obj.IdUsuario);
-                    cmd.Parameters.AddWithValue("@Documento", obj.Documento);
-                    cmd.Parameters.AddWithValue("@NombreCompleto", obj.NombreCompleto);
-                    cmd.Parameters.AddWithValue("@Correo", obj.Correo);
-                    cmd.Parameters.AddWithValue("@Clave", obj.Clave);
-                    cmd.Parameters.AddWithValue("@IdRol", obj.oRol.IdRol);
-                    cmd.Parameters.AddWithValue("@Estado", obj.Estado);
-                    cmd.Parameters.Add("@Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.Parameters.AddWithValue("IdProveedor", obj.IdProveedor);
+                    cmd.Parameters.AddWithValue("Documento", obj.Documento);
+                    cmd.Parameters.AddWithValue("RazonSocial", obj.RazonSocial);
+                    cmd.Parameters.AddWithValue("Correo", obj.Correo);
+                    cmd.Parameters.AddWithValue("Telefono", obj.Telefono);
+                    cmd.Parameters.AddWithValue("Estado", obj.Estado);
+                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     // Se cambió Text por StoredProcedure
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -138,8 +128,8 @@ namespace CapaDatos
                     oconexion.Open();
                     cmd.ExecuteNonQuery();
 
-                    respuesta = Convert.ToBoolean(cmd.Parameters["@Respuesta"].Value);
-                    Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
+                    respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
                 }
             }
             catch (Exception ex)
@@ -152,7 +142,7 @@ namespace CapaDatos
 
 
 
-        public bool Eliminar(Usuario obj, out string Mensaje)
+        public bool Eliminar(Proveedor obj, out string Mensaje)
         {
             bool respuesta = false;
             Mensaje = string.Empty;
@@ -161,11 +151,11 @@ namespace CapaDatos
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand cmd = new SqlCommand("SP_ELIMINARUSUARIO", oconexion);
+                    SqlCommand cmd = new SqlCommand("sp_EliminarProveedor", oconexion);
                     // Se agregaron los @ que faltaban
-                    cmd.Parameters.AddWithValue("@IdUsuario", obj.IdUsuario);
-                    cmd.Parameters.Add("@Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.Parameters.AddWithValue("IdProveedor", obj.IdProveedor);
+                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     // Se cambió Text por StoredProcedure
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -173,8 +163,8 @@ namespace CapaDatos
                     oconexion.Open();
                     cmd.ExecuteNonQuery();
 
-                    respuesta = Convert.ToBoolean(cmd.Parameters["@Respuesta"].Value);
-                    Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
+                    respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
                 }
             }
             catch (Exception ex)
@@ -191,4 +181,4 @@ namespace CapaDatos
     }
 
 }
-}
+
