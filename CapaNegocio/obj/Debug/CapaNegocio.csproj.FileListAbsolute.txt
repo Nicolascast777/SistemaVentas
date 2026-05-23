@@ -9,3 +9,14 @@ C:\Users\NICOLAS\source\repos\SistemaVentas\CapaNegocio\obj\Debug\CapaNegocio.cs
 C:\Users\NICOLAS\source\repos\SistemaVentas\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
 C:\Users\NICOLAS\source\repos\SistemaVentas\CapaNegocio\obj\Debug\CapaNegocio.dll
 C:\Users\NICOLAS\source\repos\SistemaVentas\CapaNegocio\obj\Debug\CapaNegocio.pdb
+G:\PROYECTO SENA\CapaNegocio\bin\Debug\CapaNegocio.dll
+G:\PROYECTO SENA\CapaNegocio\bin\Debug\CapaNegocio.pdb
+G:\PROYECTO SENA\CapaNegocio\bin\Debug\CapaDatos.dll
+G:\PROYECTO SENA\CapaNegocio\bin\Debug\CapaEntidad.dll
+G:\PROYECTO SENA\CapaNegocio\bin\Debug\CapaDatos.pdb
+G:\PROYECTO SENA\CapaNegocio\bin\Debug\CapaEntidad.pdb
+G:\PROYECTO SENA\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+G:\PROYECTO SENA\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+G:\PROYECTO SENA\CapaNegocio\obj\Debug\CapaNego.81B9D119.Up2Date
+G:\PROYECTO SENA\CapaNegocio\obj\Debug\CapaNegocio.dll
+G:\PROYECTO SENA\CapaNegocio\obj\Debug\CapaNegocio.pdb

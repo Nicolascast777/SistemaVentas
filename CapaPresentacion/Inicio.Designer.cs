@@ -108,7 +108,7 @@
             this.submenucategoria.IconSize = 16;
             this.submenucategoria.Image = ((System.Drawing.Image)(resources.GetObject("submenucategoria.Image")));
             this.submenucategoria.Name = "submenucategoria";
-            this.submenucategoria.Size = new System.Drawing.Size(125, 22);
+            this.submenucategoria.Size = new System.Drawing.Size(180, 22);
             this.submenucategoria.Text = "Categoria";
             this.submenucategoria.Click += new System.EventHandler(this.submenucategoria_Click);
             // 
@@ -119,7 +119,7 @@
             this.submenuproducto.IconSize = 16;
             this.submenuproducto.Image = ((System.Drawing.Image)(resources.GetObject("submenuproducto.Image")));
             this.submenuproducto.Name = "submenuproducto";
-            this.submenuproducto.Size = new System.Drawing.Size(125, 22);
+            this.submenuproducto.Size = new System.Drawing.Size(180, 22);
             this.submenuproducto.Text = "Producto";
             this.submenuproducto.Click += new System.EventHandler(this.submenuproducto_Click);
             // 
@@ -146,7 +146,7 @@
             this.submenuregistrarventa.IconSize = 16;
             this.submenuregistrarventa.Image = ((System.Drawing.Image)(resources.GetObject("submenuregistrarventa.Image")));
             this.submenuregistrarventa.Name = "submenuregistrarventa";
-            this.submenuregistrarventa.Size = new System.Drawing.Size(129, 22);
+            this.submenuregistrarventa.Size = new System.Drawing.Size(180, 22);
             this.submenuregistrarventa.Text = "Registrar";
             this.submenuregistrarventa.Click += new System.EventHandler(this.submenuregistrarventa_Click);
             // 
@@ -157,7 +157,7 @@
             this.submenuverdetalleventa.IconSize = 16;
             this.submenuverdetalleventa.Image = ((System.Drawing.Image)(resources.GetObject("submenuverdetalleventa.Image")));
             this.submenuverdetalleventa.Name = "submenuverdetalleventa";
-            this.submenuverdetalleventa.Size = new System.Drawing.Size(129, 22);
+            this.submenuverdetalleventa.Size = new System.Drawing.Size(180, 22);
             this.submenuverdetalleventa.Text = "Ver Detalle";
             this.submenuverdetalleventa.Click += new System.EventHandler(this.submenuverdetalleventa_Click);
             // 
@@ -184,7 +184,7 @@
             this.submenuregistrarcompra.IconSize = 16;
             this.submenuregistrarcompra.Image = ((System.Drawing.Image)(resources.GetObject("submenuregistrarcompra.Image")));
             this.submenuregistrarcompra.Name = "submenuregistrarcompra";
-            this.submenuregistrarcompra.Size = new System.Drawing.Size(129, 22);
+            this.submenuregistrarcompra.Size = new System.Drawing.Size(180, 22);
             this.submenuregistrarcompra.Text = "Registrar";
             this.submenuregistrarcompra.Click += new System.EventHandler(this.submenuregistrarcompra_Click);
             // 
@@ -195,7 +195,7 @@
             this.submenuverdetallecompra.IconSize = 16;
             this.submenuverdetallecompra.Image = ((System.Drawing.Image)(resources.GetObject("submenuverdetallecompra.Image")));
             this.submenuverdetallecompra.Name = "submenuverdetallecompra";
-            this.submenuverdetallecompra.Size = new System.Drawing.Size(129, 22);
+            this.submenuverdetallecompra.Size = new System.Drawing.Size(180, 22);
             this.submenuverdetallecompra.Text = "Ver Detalle";
             this.submenuverdetallecompra.Click += new System.EventHandler(this.submenuverdetallecompra_Click);
             // 
@@ -216,7 +216,7 @@
             // menuproveedores
             // 
             this.menuproveedores.AutoSize = false;
-            this.menuproveedores.Icon = FontAwesome.Sharp.IconChar.Ambulance;
+            this.menuproveedores.Icon = FontAwesome.Sharp.IconChar.List;
             this.menuproveedores.IconColor = System.Drawing.Color.Black;
             this.menuproveedores.IconSize = 50;
             this.menuproveedores.Image = ((System.Drawing.Image)(resources.GetObject("menuproveedores.Image")));
