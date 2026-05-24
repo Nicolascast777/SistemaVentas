@@ -378,7 +378,7 @@
             this.btnlimpiarbuscador.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnlimpiarbuscador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlimpiarbuscador.ForeColor = System.Drawing.Color.Black;
-            this.btnlimpiarbuscador.Icon = FontAwesome.Sharp.IconChar.TimesCircle;
+            this.btnlimpiarbuscador.Icon = FontAwesome.Sharp.IconChar.Eraser;
             this.btnlimpiarbuscador.IconColor = System.Drawing.Color.Black;
             this.btnlimpiarbuscador.IconSize = 16;
             this.btnlimpiarbuscador.Image = ((System.Drawing.Image)(resources.GetObject("btnlimpiarbuscador.Image")));

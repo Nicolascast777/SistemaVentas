@@ -71,6 +71,7 @@ namespace CapaPresentacion
                     item.Estado == true ? "Activo" : "No Activo"
                 });
             }
+
         }
 
         private void btnguardar_Click(object sender, EventArgs e)

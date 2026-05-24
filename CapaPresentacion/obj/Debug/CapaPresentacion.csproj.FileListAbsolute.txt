@@ -202,3 +202,5 @@ G:\PROYECTO SENA\CapaPresentacion\obj\Debug\CapaPres.61CA7C38.Up2Date
 G:\PROYECTO SENA\CapaPresentacion\obj\Debug\CapaPresentacion.exe
 G:\PROYECTO SENA\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
 G:\PROYECTO SENA\CapaPresentacion\obj\Debug\CapaPresentacion.frmNegocio.resources
+G:\PROYECTO SENA\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.mdProveedor.resources
+G:\PROYECTO SENA\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.mdProducto.resources

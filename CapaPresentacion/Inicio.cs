@@ -24,13 +24,12 @@ namespace CapaPresentacion
         {
 
             if (objusuario == null)
+                //SI NO SE RECIBE UN USUARIO, SE CREA UNO PREDEFINIDO PARA QUE EL SISTEMA FUNCIONE CORRECTAMENTE (ESTO ES SOLO PARA PRUEBAS, EN UN ENTORNO REAL NO DEBERIA EXISTIR ESTA OPCION)
                 usuarioActual = new Usuario() { NombreCompleto = "ADMIN PREDEFINIDO",IdUsuario = 1 };
             else
                 usuarioActual = objusuario;
 
             InitializeComponent();
-
-
         }
 
         private void Inicio_Load(object sender, EventArgs e)
@@ -112,7 +111,8 @@ namespace CapaPresentacion
 
         private void submenuregistrarcompra_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menucompras, new frmCompras());
+            //Aca si debo pasarle como parametro el usuario actual, porque para el formulario de compras es necesario saber quien es el usuario que esta realizando la compra, para asi poder registrar esa informacion en la base de datos y llevar un control de quien hizo cada compra
+            AbrirFormulario(menucompras, new frmCompras(usuarioActual));
         }
 
         private void submenuverdetallecompra_Click(object sender, EventArgs e)
