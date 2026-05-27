@@ -304,5 +304,8 @@
   <ItemGroup>
     <None Include="Resources\sobresalir.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\borrar25px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

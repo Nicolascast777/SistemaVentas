@@ -1,4 +1,5 @@
 ﻿using CapaEntidad;
+using CapaNegocio;
 using CapaPresentacion.Modales;
 using CapaPresentacion.Utilidades;
 using System;
@@ -14,7 +15,7 @@ using System.Windows.Forms;
 namespace CapaPresentacion
 {
 
-    
+
     public partial class frmCompras : Form
     {
         //Seccion para recibir el usuario logueado desde el formulario de inicio, esto es para mostrar el nombre del usuario en la barra de estado y para controlar los permisos de acceso a los diferentes formularios del sistema
@@ -60,7 +61,8 @@ namespace CapaPresentacion
                         txtnumerodocproveedor.Text = modal._Proveedor.Documento;
                         txtrazonsocialproveedor.Text = modal._Proveedor.RazonSocial;
                     }
-                    else {
+                    else
+                    {
                         txtnumerodocproveedor.Select();
                     }
 
@@ -89,12 +91,219 @@ namespace CapaPresentacion
                     txtcodproducto.Select();
                 }
 
+            }
+
+        }
+        //Metodo para buscar un producto al presionar la tecla Enter.
+        private void txtcodproducto_KeyDown(object sender, KeyEventArgs e)
+        { //se valida si presiona Enter
+            if (e.KeyData == Keys.Enter)
+            {
+                //.Where es un metodo extensible de las listas o colecciones, como el Where en sql
+                //=> es una expresion lambda, es decir, una funcion anonima que se puede usar para filtrar o proyectar datos en una lista o coleccion o a acceder a las propiedades de los objetos o clases. En este caso, se esta filtrando la lista de productos para obtener el producto que tiene el codigo igual al texto ingresado en el campo txtcodproducto.
+                //  Es como los arrows function de javascript
+                // en este caso 'p' representaria a una clase de '.Listar'
+                Producto oProducto = new CN_Producto().Listar().Where(p => p.Codigo == txtcodproducto.Text && p.Estado == true).FirstOrDefault();
+
+                if (oProducto != null)
+                {
+                    txtcodproducto.BackColor = Color.LimeGreen;
+                    txtidcodproducto.Text = oProducto.IdProducto.ToString();
+                    txtnombreprodcuto.Text = oProducto.Nombre;
+                    txtpreciocompra.Select();
+                }
+                else
+                {
+                    txtcodproducto.BackColor = Color.RosyBrown;
+                    txtidcodproducto.Text = "0";
+                    txtnombreprodcuto.Text = "";
+
                 }
 
             }
 
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+
+
+            decimal precioCompra = 0;
+            decimal precioVenta = 0;
+            bool productoExiste = false; //para no repetir un producto en la lista
+
+            //A continuacion, validaciones de los valores digitados.
+            if (int.Parse(txtidcodproducto.Text) == 0)
+            {
+                MessageBox.Show("Debe seleccionar un producto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (!decimal.TryParse(txtpreciocompra.Text, out precioCompra))
+            {
+                MessageBox.Show("El precio de compra no es un valor valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtpreciocompra.Select();
+                return;
+            }
+
+            if (!decimal.TryParse(txtprecioventa.Text, out precioVenta))
+            {
+                MessageBox.Show("El precio de venta no es un valor valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtprecioventa.Select();
+                return;
+
+            }
+
+            //Validacion para que no se repita un producto en la lista, se recorre el datagridview para verificar si el producto ya existe en la lista, si existe, se actualiza la cantidad y el precio de compra y venta, si no existe, se agrega una nueva fila al datagridview con los datos del producto.
+
+            foreach (DataGridViewRow fila in dgvdata.Rows)
+            {
+                //Se valida si la columna no es null y recorriendo el foreach encuentra la que estoy agregando 
+                if (fila.Cells["IdProducto"].Value != null && fila.Cells["IdProducto"].Value.ToString() == txtidcodproducto.Text)
+                {
+                    productoExiste = true;
+                    break;//Si encuentra el prodcuto sale del foreach
+
+                }
+            }
+
+            if (!productoExiste)
+            {
+                // Con ToString("N2") o tambien ("0,00")manejo la cantidad de decimales
+                dgvdata.Rows.Add(new object[] {
+                    txtidcodproducto.Text,
+                    txtcodproducto.Text,
+                    precioCompra.ToString("N2"),
+                    precioVenta.ToString("N2"),
+                    nudcantidad.Value.ToString(),
+                    (nudcantidad.Value * precioCompra).ToString("N2")
+                });
+
+                calcularTotal();
+                limpiarCamposProducto();
+                txtcodproducto.Select();
+
+            }
+
+        }
+
+        private void limpiarCamposProducto()
+        {
+            txtidcodproducto.Text = "0";
+            txtcodproducto.Text = "";
+            txtnombreprodcuto.Text = "";
+            txtcodproducto.BackColor = Color.White;
+            txtpreciocompra.Text = "";
+            txtprecioventa.Text = "";
+            nudcantidad.Value = 1;
+            txtcodproducto.Select();
+        }
+
+        //Metodo para calcular el total de la compra, se recorre el datagridview para sumar el total de cada fila y mostrar el resultado en el campo txttotal.
+        private void calcularTotal()
+        {
+            decimal total = 0;
+            if (dgvdata.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow fila in dgvdata.Rows)
+                {
+                    total = Convert.ToDecimal(fila.Cells["SubTotal"].Value) + total;
+                }
+                txttotalpagar.Text = total.ToString("N2");
+
+            }
+        }
+
+        //metodo para mostrar el icono de eliminar en el datagridview, se valida si la columna es la de eliminar y se dibuja el icono en el centro de la celda.
+        private void dgvdata_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+
+            if (e.RowIndex < 0)
+                return;
+
+            if (e.ColumnIndex == 6)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var w = Properties.Resources.borrar25px.Width;
+                var h = Properties.Resources.borrar25px.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.borrar25px, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+        //Funcion para eliminar una fila del datagridview al hacer click en el icono de eliminar, se valida si la columna es la de eliminar y se elimina la fila correspondiente, luego se recalcula el total de la compra.
+        private void dgvdata_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (dgvdata.Columns[e.ColumnIndex].Name == "btneliminar")
+            {
+                int indice = e.RowIndex;
+
+                if (indice >= 0)
+                {
+                    dgvdata.Rows.RemoveAt(indice);
+                    calcularTotal();
+
+
+                }
+            }
+
+        }
+
+        private void txtpreciocompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Si es un numero, no se activa el controlador
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {//se valida q no inicie con puntos
+                if (txtpreciocompra.Text.Trim().Length == 0 && e.KeyChar.ToString() == ".")
+                {
+                    e.Handled = true;
+                }
+                else
+                {//se lehace excepcion a la tecla de borrar, y si ya tiene texto ahora si permite escribir un punto
+                    if (char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ".")
+                    {
+                        e.Handled = false;
+                    }
+                    else { e.Handled = true; }
+
+                }
+            }
+        }
+
+        private void txtprecioventa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Si es un numero, no se activa el controlador
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {//se valida q no inicie con puntos
+                if (txtprecioventa.Text.Trim().Length == 0 && e.KeyChar.ToString() == ".")
+                {
+                    e.Handled = true;
+                }
+                else
+                {//se lehace excepcion a la tecla de borrar, y si ya tiene texto ahora si permite escribir un punto
+                    if (char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ".")
+                    {
+                        e.Handled = false;
+                    }
+                    else { e.Handled = true; }
+
+                }
+            }
 
         }
     }
+}
 
 
