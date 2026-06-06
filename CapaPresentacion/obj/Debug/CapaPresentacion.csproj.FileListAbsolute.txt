@@ -204,3 +204,9 @@ G:\PROYECTO SENA\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
 G:\PROYECTO SENA\CapaPresentacion\obj\Debug\CapaPresentacion.frmNegocio.resources
 G:\PROYECTO SENA\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.mdProveedor.resources
 G:\PROYECTO SENA\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.mdProducto.resources
+G:\PROYECTO SENA\CapaPresentacion\obj\Debug\CapaPresentacion.frmDetalleCompra.resources
+G:\PROYECTO SENA\CapaPresentacion\bin\Debug\BouncyCastle.Cryptography.dll
+G:\PROYECTO SENA\CapaPresentacion\bin\Debug\itextsharp.dll
+G:\PROYECTO SENA\CapaPresentacion\bin\Debug\itextsharp.xmlworker.dll
+G:\PROYECTO SENA\CapaPresentacion\bin\Debug\BouncyCastle.Cryptography.xml
+G:\PROYECTO SENA\CapaPresentacion\bin\Debug\itextsharp.xml
