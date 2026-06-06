@@ -198,6 +198,15 @@ namespace CapaPresentacion
             nudcantidad.Value = 1;
             txtcodproducto.Select();
         }
+        private void limpiarCamposProve()
+        {
+            txtidproveedor.Text = "0";
+            txtnumerodocproveedor.Text = "";
+            txtrazonsocialproveedor.Text = "";
+            dgvdata.Rows.Clear();
+            calcularTotal();
+            
+        }
 
         //Metodo para calcular el total de la compra, se recorre el datagridview para sumar el total de cada fila y mostrar el resultado en el campo txttotal.
         private void calcularTotal()
@@ -300,6 +309,77 @@ namespace CapaPresentacion
                     else { e.Handled = true; }
 
                 }
+            }
+
+        }
+
+        //Metodo del boton para agregar la compra. Se validan los datos necesarios para registrar la compra, como el proveedor y los productos agregados a la compra, luego se crea datatable para el detalle de la compra y se llena con los datos del datagridview, finalmente se llama al metodo Registrar de la clase CN_Compra para guardar la compra en la base de datos.
+        private void btnregistrarcompra_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(txtidproveedor.Text) == 0)
+            {
+                MessageBox.Show("Debe seleccionar un proveedor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+
+            }
+            if (dgvdata.Rows.Count < 1)
+            {
+                MessageBox.Show("Debe agregar productos a la compra", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            DataTable detalle_compra = new DataTable();
+            //columnas y tipo de datos del dataTable
+            detalle_compra.Columns.Add("IdProducto", typeof(int));
+            detalle_compra.Columns.Add("PrecioCompra", typeof(decimal));
+            detalle_compra.Columns.Add("PrecioVenta", typeof(decimal));
+            detalle_compra.Columns.Add("Cantidad", typeof(int));
+            detalle_compra.Columns.Add("SubTotal", typeof(decimal));
+
+            //Se itera el datagridview con sus celdas y filas para llenar el datatable que se enviara con el detalle de la compra y todos los       
+            foreach (DataGridViewRow row in dgvdata.Rows)
+            {
+                detalle_compra.Rows.Add(
+                    new object[] {
+                    Convert.ToInt32(row.Cells["IdProducto"].Value.ToString()),
+                    row.Cells["PrecioCompra"].Value.ToString(),
+                    row.Cells["PrecioVenta"].Value.ToString(),
+                    row.Cells["Cantidad"].Value.ToString(),
+                    row.Cells["SubTotal"].Value.ToString(),
+                    });
+            }
+
+            //Se obtiene idCorrelativo o id autoincrementable
+
+            int idcorrelativo = new CN_Compra().ObtenerCorrelativo();
+            //El formato sera de 5 digitos, con ceros a la izquierda. Al futuro se puede agregar un prefijo para identificar el tipo de documento, por ejemplo, CMP para compras, y luego el numero correlativo con el formato de 5 digitos.
+            string numeroDocumento = string.Format("{0:00000}", idcorrelativo);
+
+            //Se registra la compra, se crea un objeto compra con los datos necesarios para registrar la compra. Luego se llama al metodo Registrar de la clase CN_Compra para guardar la compra en la base de datos, enviando el objeto compra y el datatable con el detalle de la compra.
+            Compra oCompra = new Compra()
+            {
+                oUsuaio = new Usuario() { IdUsuario = _Usuario.IdUsuario },
+                oProveedor = new Proveedor() { IdProveedor = Convert.ToInt32(txtidproveedor.Text) },
+                TipoDocumento = ((OpcionCombo)cbotiposoporte.SelectedItem).Texto,
+                NumeroDocumento = numeroDocumento,
+                MontoTotal = Convert.ToDecimal(txttotalpagar.Text)
+            };
+            
+            string mensaje = string.Empty;
+            //Se hace el llamado al metodo de registrar la compra en la bd, se le pasa el objeto compra, el detalle como dataTable y el mensaje q ddevolvera la ejecucion
+            bool respuesta  = new CN_Compra().Registrar(oCompra, detalle_compra, out mensaje);
+
+            if (respuesta)
+            {
+                var result = MessageBox.Show("Compra registrada exitosamente. Número de compra:\n" + numeroDocumento + "\n\n" + "¿Desea copiar el numero de la compra " +
+                    "al portapapeles?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes) { 
+                    Clipboard.SetText(numeroDocumento);
+                }
+                limpiarCamposProve();
+            }
+            else{
+                MessageBox.Show("No se pudo registrar la compra. Mensaje de error:\n\n" + mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

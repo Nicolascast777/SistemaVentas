@@ -160,7 +160,7 @@
   <data name="btnregistrarcompra.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAAIlJREFUOE9jGELAnsEBCP9jwesYnBnUoKpIAA4M2SiGoBr6n3RDYQaCXArhV4H5
+        vAAADrwBlbxySQAAAIlJREFUOE9jGELAnsEBCP9jwesYnBnUoKpIAA4M2SiGoBr6n3RDYQaCXArhV4H5
         ZBuKcGEV0FAeII3pShAm2lBUL+PHRBnqyOCHVTMuTNBQiDcPY2jEh2liKEFAmqGHoboIAOIMPQxWRzTA
         byiJhsEAdkPJNAwGUA2l0DAYgBiaTR3DRgF+wMAAAM/5jGay+7NKAAAAAElFTkSuQmCC
 </value>
@@ -173,25 +173,4 @@
         ANPpxDaGYLOTAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="IdProducto.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Producto.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="PrecioCompra.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="PrecioVenta.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Cantidad.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="SubTotal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="btneliminar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
 </root>
