@@ -76,6 +76,26 @@ namespace CapaPresentacion
 
         private void btnguardar_Click(object sender, EventArgs e)
         {
+
+            //adicional
+            decimal precioCompra = 0;
+            decimal precioVenta = 0;
+
+            if (!decimal.TryParse(txtpreciocompra.Text, out precioCompra))
+            {
+                MessageBox.Show("El precio de compra no es un valor valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtpreciocompra.Select();
+                return;
+            }
+
+            if (!decimal.TryParse(txtprecioventa.Text, out precioVenta))
+            {
+                MessageBox.Show("El precio de venta no es un valor valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtprecioventa.Select();
+                return;
+            }
+            //adicional<-
+
             string mensaje = string.Empty;
 
             Producto obj = new Producto()
@@ -86,6 +106,11 @@ namespace CapaPresentacion
                 Descripcion = txtdescripcion.Text,
                 oCategoria = new Categoria() { IdCategoria = Convert.ToInt32(((OpcionCombo)cbocategoria.SelectedItem).Valor) },
                 Estado = Convert.ToInt32(((OpcionCombo)cboestado.SelectedItem).Valor) == 1 ? true : false
+                //adicional
+                ,
+                PrecioCompra = Convert.ToDecimal(txtpreciocompra.Text),
+                PrecioVenta = Convert.ToDecimal(txtprecioventa.Text)
+                //adicional<-
             };
 
             if (obj.IdProducto == 0)
@@ -103,8 +128,12 @@ namespace CapaPresentacion
                         ((OpcionCombo)cbocategoria.SelectedItem).Valor.ToString(),
                         ((OpcionCombo)cbocategoria.SelectedItem).Texto.ToString(),
                         "0",
-                        "0.00",
-                        "0.00",
+                         //adicional
+                        //"0.00",
+                        //"0.00",
+                        txtpreciocompra.Text,
+                        txtprecioventa.Text,
+                         //adicional<-
                         ((OpcionCombo)cboestado.SelectedItem).Valor.ToString(),
                         ((OpcionCombo)cboestado.SelectedItem).Texto.ToString()
                     });
@@ -129,6 +158,10 @@ namespace CapaPresentacion
                     row.Cells["Categoria"].Value = ((OpcionCombo)cbocategoria.SelectedItem).Texto.ToString();
                     row.Cells["EstadoValor"].Value = ((OpcionCombo)cboestado.SelectedItem).Valor.ToString();
                     row.Cells["Estado"].Value = ((OpcionCombo)cboestado.SelectedItem).Texto.ToString();
+                    //adicional
+                    row.Cells["PrecioCompra"].Value = txtpreciocompra.Text;
+                    row.Cells["PrecioVenta"].Value = txtprecioventa.Text;
+                    //adicional<-
                     Limpiar();
                 }
                 else
@@ -148,6 +181,10 @@ namespace CapaPresentacion
             cbocategoria.SelectedIndex = 0;
             cboestado.SelectedIndex = 0;
             txtcodigo.Select();
+            //Adicional
+            txtpreciocompra.Text = "";
+            txtprecioventa.Text = "";
+            //adicional<-
         }
 
         private void dgvdata_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -183,8 +220,10 @@ namespace CapaPresentacion
                     txtcodigo.Text = dgvdata.Rows[indice].Cells["Codigo"].Value.ToString();
                     txtnombre.Text = dgvdata.Rows[indice].Cells["Nombre"].Value.ToString();
                     txtdescripcion.Text = dgvdata.Rows[indice].Cells["Descripcion"].Value.ToString();
-                    
-
+                    //Adicional
+                    txtpreciocompra.Text = dgvdata.Rows[indice].Cells["PrecioCompra"].Value.ToString();
+                    txtprecioventa.Text = dgvdata.Rows[indice].Cells["PrecioVenta"].Value.ToString();
+                    //Adicional<-
 
                     foreach (OpcionCombo oc in cbocategoria.Items)
                     {
@@ -335,6 +374,57 @@ namespace CapaPresentacion
             }
 
         }
+        //Adicional- Validacion para lo q se esriba en el precio de compra y precio venta, solo numeros y un punto decimal
+        private void txtpreciocompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Si es un numero, no se activa el controlador
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {//se valida q no inicie con puntos
+                if (txtpreciocompra.Text.Trim().Length == 0 && e.KeyChar.ToString() == ".")
+                {
+                    e.Handled = true;
+                }
+                else
+                {//se lehace excepcion a la tecla de borrar, y si ya tiene texto ahora si permite escribir un punto
+                    if (char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ".")
+                    {
+                        e.Handled = false;
+                    }
+                    else { e.Handled = true; }
+
+                }
+            }
+
+        }
+        private void txtprecioventa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Si es un numero, no se activa el controlador
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {//se valida q no inicie con puntos
+                if (txtprecioventa.Text.Trim().Length == 0 && e.KeyChar.ToString() == ".")
+                {
+                    e.Handled = true;
+                }
+                else
+                {//se lehace excepcion a la tecla de borrar, y si ya tiene texto ahora si permite escribir un punto
+                    if (char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ".")
+                    {
+                        e.Handled = false;
+                    }
+                    else { e.Handled = true; }
+
+                }
+            }
+        }
+        //Adicional<-
     }
-    
+
 }
