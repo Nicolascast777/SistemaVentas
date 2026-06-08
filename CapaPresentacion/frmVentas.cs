@@ -157,6 +157,12 @@ namespace CapaPresentacion
                 return;
             }
 
+            if (Convert.ToInt32(txtstock.Text) <=0)
+            {
+                MessageBox.Show("Stock no disponible.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             //Si todas las validaciones son correctas, se procede a agregar el producto al detalle de la venta. Para esto, se recorre el datagridview que muestra los productos agregados al detalle de la venta para verificar si el producto que se esta intentando agregar ya existe en el detalle. Si el producto ya existe, se actualiza la cantidad y el total del producto en el datagridview. Si el producto no existe, se agrega una nueva fila al datagridview con los datos del producto, la cantidad y el total correspondiente.
             foreach (DataGridViewRow fila in dgvdata.Rows)
             {
@@ -169,16 +175,35 @@ namespace CapaPresentacion
 
             if (!producto_existe)
             {
-                dgvdata.Rows.Add(new object[] {
+                // a evaluar a futur: Se actualiza el stock en la bd cuando agrego un producto a la grilla. ¿deberia mas bien poner esto cuando Registre la venta?
+                //Se resta el stock del producto en la base de datos, se agrega el producto al detalle de la venta y se recalcula el total a pagar. Luego se limpia los campos del producto para agregar un nuevo producto y se selecciona el campo de codigo de producto para facilitar la busqueda del siguiente producto.
+                bool respuesta = new CN_Venta().RestarStock(
+                    Convert.ToInt32(txtideproducto.Text),
+                    Convert.ToInt32(txtCantidad.Value.ToString())
+                    );
+                
+                if (respuesta)
+                {
+                    dgvdata.Rows.Add(new object[] {
                     txtideproducto.Text,
                     txtProducto.Text,
                     txtprecio.Text,
                     txtCantidad.Value.ToString(),
                     (txtCantidad.Value  * precio).ToString("0.00")
                 });
+                }
+
+                //dgvdata.Rows.Add(new object[] {
+                //    txtideproducto.Text,
+                //    txtProducto.Text,
+                //    txtprecio.Text,
+                //    txtCantidad.Value.ToString(),
+                //    (txtCantidad.Value  * precio).ToString("0.00")
+                //});
                 CalcularTotalPagar();
                 limpiarProdcuto();
                 txtcodigoProducto.Select();
+                // a evaluar a futuro<-
             }
 
             //else
@@ -225,8 +250,19 @@ namespace CapaPresentacion
                 int indice = e.RowIndex;
                 if (indice >= 0)
                 {
-                    dgvdata.Rows.RemoveAt(indice);
-                    CalcularTotalPagar();
+                    // a evaluar a futuro: Se actualiza el stock en la bd cuando elimino un producto de la grilla. ¿deberia mas bien poner esto cuando Registre la venta?
+                    bool respuesta = new CN_Venta().SumarStock(
+                        Convert.ToInt32(dgvdata.Rows[indice].Cells["IdProducto"].Value.ToString()),
+                        Convert.ToInt32(dgvdata.Rows[indice].Cells["Cantidad"].Value.ToString()));
+
+                    if (respuesta)
+                    {
+                        dgvdata.Rows.RemoveAt(indice);
+                        CalcularTotalPagar();
+                    }
+                    //    dgvdata.Rows.RemoveAt(indice);
+                    //CalcularTotalPagar();
+                    // a evaluar a futuro<-
                 }
             }
         }
@@ -383,5 +419,97 @@ namespace CapaPresentacion
             calcularDeuvelta();
         }
         //Adicional<-
+
+        //Registrar una venta
+        private void btnregistrarcompra_Click(object sender, EventArgs e)
+        {
+            //Se inician validaciones basicas al registrar la venta.
+            //A evaluar a futuro: ¿Se deberia permitir o no registrar una venta sin asociarla a un cliente? De ser afirmativo se debe modificar el llamado al procedmiento almacenado y par de cosas
+            if (txtdocumentoCliente.Text == "")
+            {
+                MessageBox.Show("Debe ingresar el numero de documento del cliente para la venta.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtdocumentoCliente.Select();
+                return;
+            }
+
+            if (txtnombreCliente.Text == "")
+            {
+                MessageBox.Show("Debe ingresar el nombre del cliente para la venta.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtnombreCliente.Select();
+                return;
+                    
+            }
+
+            if (dgvdata.Rows.Count < 1)
+            {
+                MessageBox.Show("Debe agregar productos para la venta.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            DataTable detalle_venta = new DataTable();
+            
+            detalle_venta.Columns.Add("IdProducto", typeof(int));
+            detalle_venta.Columns.Add("PrecioVenta", typeof(decimal));
+            detalle_venta.Columns.Add("Cantidad", typeof(int));
+            detalle_venta.Columns.Add("SubTotal", typeof(decimal));
+
+            foreach (DataGridViewRow row in dgvdata.Rows)
+            {
+                detalle_venta.Rows.Add(new object[]
+                {                
+                   row.Cells["IdProducto"].Value.ToString(),
+                   row.Cells["Precio"].Value.ToString(),
+                   row.Cells["Cantidad"].Value.ToString(),
+                   row.Cells["SubTotal"].Value.ToString()
+                    });
+            }
+
+            //Se obtiene el correlativo de esa venta
+            int idcorrelativo = new CN_Venta().ObtenerCorrelativo();
+            //numeroDocumento  : identificador unico de la venta, se genera a partir del correlativo obtenido de la base de datos, y se formatea para que tenga 5 digitos, rellenando con ceros a la izquierda si es necesario. Por ejemplo, si el correlativo es 1, el numeroDocumento sera "00001", si el correlativo es 23, el numeroDocumento sera "00023", y asi sucesivamente.
+            string numeroDocumento = string.Format("{0:00000}", idcorrelativo);
+
+            calcularDeuvelta();
+
+            //Luego se crea un objeto de tipo Venta, que es una clase que representa la entidad de una venta en el sistema. Este objeto se llena con los datos necesarios para registrar la venta, como el usuario que realiza la venta, el tipo de documento, el cliente asociado a la venta, el numero de documento generado, el monto pagado por el cliente, el monto de cambio a devolver al cliente y el monto total a pagar por la venta.
+            Venta objVenta = new Venta()
+            {
+                oUsuario = new Usuario() { IdUsuario = _Usuario.IdUsuario},
+                TipoDocumento = ((OpcionCombo)cbotipodocumento.SelectedItem).Texto,
+                NumeroDocumento = numeroDocumento,
+                DocumentoCliente = txtdocumentoCliente.Text,
+                NombreCliente = txtnombreCliente.Text,
+            
+                MontoPago = Convert.ToDecimal(txtpagocon.Text),
+                MontoCambio = Convert.ToDecimal(txtcambio.Text),
+                MontoTotal = Convert.ToDecimal(txttotalpagar.Text)
+            };
+
+            //Luego se llama al metodo RegistrarVenta de la clase CN_Venta, que es una clase del negocio encargada de manejar la logica relacionada con las ventas. Este metodo recibe como parametros el objeto de tipo Venta creado anteriormente, el detalle de la venta en formato DataTable, y una variable de tipo string para almacenar un mensaje de respuesta. El metodo devuelve un valor booleano que indica si la venta se registro correctamente o no.
+            string mensaje = string.Empty;
+            bool respuesta = new CN_Venta().RegistrarVenta_(objVenta, detalle_venta, out mensaje);
+
+            if (respuesta)
+            {
+
+                var result = MessageBox.Show("Venta registrada correctamente.\n\n Venta #"+ numeroDocumento + "\n\n ¿Desea copiar el numero de venta al portapapeles?", "Mensaje",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                
+                if (result == DialogResult.Yes) 
+                    Clipboard.SetText(numeroDocumento);
+                    
+                txtdocumentoCliente.Text = "";
+                txtnombreCliente.Text = "";
+                dgvdata.Rows.Clear();
+                CalcularTotalPagar();
+                txtpagocon.Text = "";
+                txtcambio.Text = "";
+            }else
+                MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+
+
+        }
+        
     }
 }

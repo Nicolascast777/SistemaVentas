@@ -211,3 +211,4 @@ G:\PROYECTO SENA\CapaPresentacion\bin\Debug\itextsharp.xmlworker.dll
 G:\PROYECTO SENA\CapaPresentacion\bin\Debug\BouncyCastle.Cryptography.xml
 G:\PROYECTO SENA\CapaPresentacion\bin\Debug\itextsharp.xml
 G:\PROYECTO SENA\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.mdCliente.resources
+G:\PROYECTO SENA\CapaPresentacion\obj\Debug\CapaPresentacion.frmDetalleVenta.resources
