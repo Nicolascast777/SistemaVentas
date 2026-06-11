@@ -78,15 +78,15 @@ namespace CapaPresentacion
         {
 
             //adicional
-            decimal precioCompra = 0;
+            //decimal precioCompra = 0;
             decimal precioVenta = 0;
 
-            if (!decimal.TryParse(txtpreciocompra.Text, out precioCompra))
-            {
-                MessageBox.Show("El precio de compra no es un valor valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtpreciocompra.Select();
-                return;
-            }
+            //if (!decimal.TryParse(txtpreciocompra.Text, out precioCompra))
+            //{
+            //    MessageBox.Show("El precio de compra no es un valor valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //    txtpreciocompra.Select();
+            //    return;
+            //}
 
             if (!decimal.TryParse(txtprecioventa.Text, out precioVenta))
             {
@@ -108,7 +108,7 @@ namespace CapaPresentacion
                 Estado = Convert.ToInt32(((OpcionCombo)cboestado.SelectedItem).Valor) == 1 ? true : false
                 //adicional
                 ,
-                PrecioCompra = Convert.ToDecimal(txtpreciocompra.Text),
+                //PrecioCompra = Convert.ToDecimal(txtpreciocompra.Text),
                 PrecioVenta = Convert.ToDecimal(txtprecioventa.Text)
                 //adicional<-
             };
@@ -423,6 +423,33 @@ namespace CapaPresentacion
 
                 }
             }
+        }
+
+        private void txtbusqueda_KeyDown(object sender, KeyEventArgs e)
+        {
+            //se valida si presiona Enter
+            if (e.KeyData == Keys.Enter)
+            {
+
+                string columnaFiltro = ((OpcionCombo)cbobusqueda.SelectedItem).Valor.ToString();
+
+                if (dgvdata.Rows.Count > 0)
+                {
+                    foreach (DataGridViewRow row in dgvdata.Rows)
+                    {
+                        if (row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtbusqueda.Text.Trim().ToUpper()))
+                            row.Visible = true;
+                        else
+                            row.Visible = false;
+                    }
+                }
+
+            }
+        }
+
+        private void txtcodigo_KeyDown(object sender, KeyEventArgs e)
+        {
+
         }
         //Adicional<-
     }

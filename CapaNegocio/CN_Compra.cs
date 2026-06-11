@@ -39,5 +39,9 @@ namespace CapaNegocio
             }
             return oCompra;
         }
+        public decimal ObtenerPorcentajeRendimientoNegocio(decimal porcentajeRendimiento)
+        {
+            return objcd_compra.ObtenerPorcentajeRendimientoNegocio(porcentajeRendimiento);
+        }
     }
 }

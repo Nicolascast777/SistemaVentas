@@ -12,5 +12,8 @@ namespace CapaEntidad
         public string Nombre { get; set; }
         public string NIT { get; set; }
         public string Direccion { get; set; }
+        //adicional
+        public decimal PorcentajeRendimiento { get; set; }
+        //adicional<-
     }
 }

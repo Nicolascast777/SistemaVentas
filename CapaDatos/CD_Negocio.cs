@@ -71,6 +71,9 @@ namespace CapaDatos
                     query.AppendLine("UPDATE NEGOCIO SET Nombre = @nombre,");
                     query.AppendLine("NIT = @Nit,");
                     query.AppendLine("Direccion = @Direccion");
+                    //adicional
+                    query.AppendLine(" ,PorcentajeRendimientoGeneral = @PorcentajeRendimientoGeneral ");
+                    //adicional<.
                     query.AppendLine("WHERE IdNegocio = 1");
 
 
@@ -78,6 +81,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("@nombre", objeto.Nombre);
                     cmd.Parameters.AddWithValue("@Nit", objeto.NIT);
                     cmd.Parameters.AddWithValue("@Direccion", objeto.Direccion);
+                    cmd.Parameters.AddWithValue("@PorcentajeRendimientoGeneral", objeto.PorcentajeRendimiento);
                     cmd.CommandType = CommandType.Text;
 
                     if (cmd.ExecuteNonQuery() < 1)

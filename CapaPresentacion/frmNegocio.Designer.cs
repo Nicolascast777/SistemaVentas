@@ -42,8 +42,11 @@
             this.btnsubir = new FontAwesome.Sharp.IconButton();
             this.label2 = new System.Windows.Forms.Label();
             this.picLogo = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtPorcentaRendimiento = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPorcentaRendimiento)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -71,6 +74,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.txtPorcentaRendimiento);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.iconButton2);
             this.groupBox1.Controls.Add(this.txtdireccion);
             this.groupBox1.Controls.Add(this.lbldireccion);
@@ -83,7 +88,7 @@
             this.groupBox1.Controls.Add(this.picLogo);
             this.groupBox1.Location = new System.Drawing.Point(12, 64);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(493, 291);
+            this.groupBox1.Size = new System.Drawing.Size(493, 304);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             // 
@@ -94,7 +99,7 @@
             this.iconButton2.IconSize = 16;
             this.iconButton2.Image = ((System.Drawing.Image)(resources.GetObject("iconButton2.Image")));
             this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.iconButton2.Location = new System.Drawing.Point(223, 212);
+            this.iconButton2.Location = new System.Drawing.Point(223, 255);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Size = new System.Drawing.Size(233, 36);
             this.iconButton2.TabIndex = 557;
@@ -105,9 +110,10 @@
             // 
             // txtdireccion
             // 
+            this.txtdireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdireccion.Location = new System.Drawing.Point(223, 170);
             this.txtdireccion.Name = "txtdireccion";
-            this.txtdireccion.Size = new System.Drawing.Size(233, 20);
+            this.txtdireccion.Size = new System.Drawing.Size(233, 21);
             this.txtdireccion.TabIndex = 3;
             // 
             // lbldireccion
@@ -121,9 +127,10 @@
             // 
             // txtnit
             // 
+            this.txtnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnit.Location = new System.Drawing.Point(223, 103);
             this.txtnit.Name = "txtnit";
-            this.txtnit.Size = new System.Drawing.Size(233, 20);
+            this.txtnit.Size = new System.Drawing.Size(233, 21);
             this.txtnit.TabIndex = 2;
             // 
             // lblnit
@@ -137,9 +144,10 @@
             // 
             // txtnombre
             // 
+            this.txtnombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnombre.Location = new System.Drawing.Point(223, 38);
             this.txtnombre.Name = "txtnombre";
-            this.txtnombre.Size = new System.Drawing.Size(233, 20);
+            this.txtnombre.Size = new System.Drawing.Size(233, 21);
             this.txtnombre.TabIndex = 1;
             // 
             // label3
@@ -158,7 +166,7 @@
             this.btnsubir.IconSize = 16;
             this.btnsubir.Image = ((System.Drawing.Image)(resources.GetObject("btnsubir.Image")));
             this.btnsubir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnsubir.Location = new System.Drawing.Point(25, 212);
+            this.btnsubir.Location = new System.Drawing.Point(25, 255);
             this.btnsubir.Name = "btnsubir";
             this.btnsubir.Size = new System.Drawing.Size(128, 35);
             this.btnsubir.TabIndex = 23;
@@ -186,6 +194,24 @@
             this.picLogo.TabIndex = 0;
             this.picLogo.TabStop = false;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(220, 203);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(120, 13);
+            this.label4.TabIndex = 559;
+            this.label4.Text = "Porcentaje Rendimiento";
+            // 
+            // txtPorcentaRendimiento
+            // 
+            this.txtPorcentaRendimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPorcentaRendimiento.Location = new System.Drawing.Point(223, 223);
+            this.txtPorcentaRendimiento.Name = "txtPorcentaRendimiento";
+            this.txtPorcentaRendimiento.Size = new System.Drawing.Size(120, 21);
+            this.txtPorcentaRendimiento.TabIndex = 560;
+            this.txtPorcentaRendimiento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // frmNegocio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,6 +226,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPorcentaRendimiento)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,5 +247,7 @@
         private System.Windows.Forms.TextBox txtnit;
         private System.Windows.Forms.Label lblnit;
         private System.Windows.Forms.TextBox txtnombre;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown txtPorcentaRendimiento;
     }
 }

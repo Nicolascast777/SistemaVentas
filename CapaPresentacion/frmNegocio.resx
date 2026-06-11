@@ -121,18 +121,18 @@
   <data name="iconButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAAJtJREFUOE/dklENwjAURStgBjCAAQxMAQpwgAMsYGEaZgIXmBn3hN6k6/pWPuCH
-        m5ys6XvvtFuWvpVRzDvcxSDCXAVND7FkLuJUrKmFEgTAaRYwTFiTswglnwgIPbf3ch0LKFpgONVByiGb
-        WNBLV8D70dTikJ+7gklwZZpKvNcVuKmOB38roPAU/FAWGvZcawr4QPVQxFH8T1J6AcGOPI8J2lU1AAAA
-        AElFTkSuQmCC
+        wQAADsEBuJFr7QAAAJlJREFUOE9jYKAScGBgYFiHB3czMDDwoGtCBtlQRYcZGBj+Q3EMAwODMRIbJIfT
+        EJABIAyyDWYASDMIgNgg4IfPEGIMgKmrQuLDAcwAkCTMABgG2QoDIENBlmAAmAGEAEEDQP4DKcKGJYkx
+        YA7UyejRCBMjaABMETqAaaStASCJW9AEBTMQhkFiMDmsBoACCF0TLqyGrnmIAwDBjjyP+cj6OAAAAABJ
+        RU5ErkJggg==
 </value>
   </data>
   <data name="btnsubir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAAIBJREFUOE/Nkg0JgDAUhBfAAhawgHVsYBQrmMESBtP7kANxwvYUwYOP/d6x7S19
-        qUa0RzcuzKvYRMdERGezqQ65M4dCuPMoJmEjfeZ6US02OyBktF4HcN9QwCBsAMYY4brGm2Tikc6brrgy
-        tIvIVApwVWhnkYn6+8glHn/vXyqlHaV2Nh8yzWdvAAAAAElFTkSuQmCC
+        wQAADsEBuJFr7QAAAINJREFUOE/Nku0JgDAMRG8AF3ABF3AdN3CUruAMLuFgyvsRKKfYVhF8EPqVO9qk
+        0od0knrfrAXxJmmXNPhhiVwcUW1yJW4y4c2zpJQJmbM3evIdJIdBkzB4bcB7mwwmKxhrhISfUZMTFClP
+        8ojOMK4uhpJBdIVxcTHQ/7hyKR5/759yAKV2Nh+1Vp0oAAAAAElFTkSuQmCC
 </value>
   </data>
 </root>

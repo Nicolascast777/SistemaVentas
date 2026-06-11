@@ -83,7 +83,8 @@ namespace CapaPresentacion
                 //asigno el contenido de mi objeto a los txt del form
                 Nombre = txtnombre.Text,
                 NIT = txtnit.Text,
-                Direccion= txtdireccion.Text
+                Direccion= txtdireccion.Text,
+                PorcentajeRendimiento = txtPorcentaRendimiento.Value                
             };
 
             bool respuesta = new CN_Negocio().GuardarDatos(obj, out mensaje);

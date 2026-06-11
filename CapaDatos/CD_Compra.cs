@@ -176,6 +176,30 @@ namespace CapaDatos
 
 
         }
+        public decimal ObtenerPorcentajeRendimientoNegocio(decimal PorcentajeRendimiento)
+        {
+            decimal porcentaje = 0;
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("SELECT PorcentajeRendimientoGeneral FROM NEGOCIO");
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+                    //Obtengo la primera fila de la primera columna
+                    porcentaje = Convert.ToDecimal(cmd.ExecuteScalar());
+                }
+                catch (Exception ex)
+                {
+                    porcentaje = 0;
+                }
+            }
+            return porcentaje;
+        }
 
 }
 }

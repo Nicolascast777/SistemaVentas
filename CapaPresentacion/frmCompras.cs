@@ -43,7 +43,10 @@ namespace CapaPresentacion
             txtidproveedor.Text = "0";
             txtidcodproducto.Text = "0";
 
-
+            //adicional , se obtiene porcentaje de rendimiento del negocio y se muestra en el campo correspondiente, esto es para que el usuario pueda tener una referencia del porcentaje de rendimiento del negocio al momento de registrar la compra, esto es importante para que el usuario pueda tomar decisiones informadas al momento de registrar la compra, por ejemplo, si el porcentaje de rendimiento es bajo, el usuario puede decidir no registrar la compra o buscar un proveedor con mejores precios, si el porcentaje de rendimiento es alto, el usuario puede decidir registrar la compra sin problemas
+            CN_Compra oCompra = new CN_Compra();
+            txtrendimiento.Value = Convert.ToDecimal(oCompra.ObtenerPorcentajeRendimientoNegocio(txtrendimiento.Value));
+            //adicional<-
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
@@ -177,6 +180,10 @@ namespace CapaPresentacion
                     precioVenta.ToString("N2"),
                     nudcantidad.Value.ToString(),
                     (nudcantidad.Value * precioCompra).ToString("N2")
+                    //adicional
+                    ,txtrendimiento.Value.ToString("N2")
+                    //adicional<-
+
                 });
 
                 calcularTotal();
@@ -230,7 +237,7 @@ namespace CapaPresentacion
             if (e.RowIndex < 0)
                 return;
 
-            if (e.ColumnIndex == 6)
+            if (e.ColumnIndex == 7)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
@@ -335,6 +342,9 @@ namespace CapaPresentacion
             detalle_compra.Columns.Add("PrecioVenta", typeof(decimal));
             detalle_compra.Columns.Add("Cantidad", typeof(int));
             detalle_compra.Columns.Add("SubTotal", typeof(decimal));
+            //adicional
+            detalle_compra.Columns.Add("PorcentajeRendimiento", typeof(decimal));
+            //adicional<-
 
             //Se itera el datagridview con sus celdas y filas para llenar el datatable que se enviara con el detalle de la compra y todos los       
             foreach (DataGridViewRow row in dgvdata.Rows)
@@ -346,6 +356,9 @@ namespace CapaPresentacion
                     row.Cells["PrecioVenta"].Value.ToString(),
                     row.Cells["Cantidad"].Value.ToString(),
                     row.Cells["SubTotal"].Value.ToString(),
+                    //adicional
+                    row.Cells["PorcentajeRendimiento"].Value.ToString(),
+                    //adicional<-
                     });
             }
 
@@ -363,6 +376,9 @@ namespace CapaPresentacion
                 TipoDocumento = ((OpcionCombo)cbotiposoporte.SelectedItem).Texto,
                 NumeroDocumento = numeroDocumento,
                 MontoTotal = Convert.ToDecimal(txttotalpagar.Text)
+                //Adicional
+                ,PorcentajeRendimiento = Convert.ToDecimal(txtrendimiento.Text)
+                //Adicional<.
             };
             
             string mensaje = string.Empty;
@@ -377,12 +393,52 @@ namespace CapaPresentacion
                     Clipboard.SetText(numeroDocumento);
                 }
                 limpiarCamposProve();
+                txttotalpagar.Text = "";
             }
             else{
                 MessageBox.Show("No se pudo registrar la compra. Mensaje de error:\n\n" + mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
+        //ADICIONAL Para cuando se presione enter se calculara el precio de venta sgun el rendimiento
+        private void txtpreciocompra_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (txtpreciocompra.Text.Trim() != "")
+                {
+                    decimal precioCompra = Convert.ToDecimal(txtpreciocompra.Text);
+                    decimal rendimiento = Convert.ToDecimal(txtrendimiento.Text);
+
+                    //Formular para calcular sobre el costo
+                    decimal PrecioVenta = precioCompra + (precioCompra * rendimiento / 100);
+
+                    //Formula para calcular sobre la venta;
+                    //decimal PrecioVenta = precioCompra / (1 - rendimiento / 100);
+
+                    txtprecioventa.Text = PrecioVenta.ToString("0.00");
+                }
+            }
+
+        }
+
+        private void txtrendimiento_Leave(object sender, EventArgs e)
+        {
+            if (txtpreciocompra.Text.Trim() != "")
+            {
+                decimal precioCompra = Convert.ToDecimal(txtpreciocompra.Text);
+                decimal rendimiento = Convert.ToDecimal(txtrendimiento.Text);
+
+                //Formular para calcular sobre el costo
+                decimal PrecioVenta = precioCompra + (precioCompra * rendimiento / 100);
+
+                //Formula para calcular sobre la venta;
+                //decimal PrecioVenta = precioCompra / (1 - rendimiento / 100);
+
+                txtprecioventa.Text = PrecioVenta.ToString("0.00");
+            }
+        }
+        //ADICIONAL <-
     }
 }
 

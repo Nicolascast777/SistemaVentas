@@ -16,5 +16,6 @@ namespace CapaEntidad
         public decimal MontoTotal { get; set; }
         public List<Detalle_Compra> oDetalleCompra { get; set; }
         public string FechaRegistro { get; set; }
+        public decimal PorcentajeRendimiento { get; set; }
     }
 }

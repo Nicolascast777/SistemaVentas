@@ -29,8 +29,8 @@ namespace CapaPresentacion
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Aca se indica que formulario se iniciara al ejecutar la aplicacion, en este caso se inicia con el formulario de Login, pero se podria iniciar directamente con el formulario de Inicio si se desea omitir el proceso de autenticacion (esto es solo para pruebas, en un entorno real no deberia existir esta opcion)
-            //Application.Run(new Inicio());
-            Application.Run(new Login());
+            Application.Run(new Inicio());
+            //Application.Run(new Login());
         }
     }
 }

@@ -89,6 +89,7 @@
             this.txtbusqueda.Name = "txtbusqueda";
             this.txtbusqueda.Size = new System.Drawing.Size(142, 20);
             this.txtbusqueda.TabIndex = 52;
+            this.txtbusqueda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbusqueda_KeyDown);
             // 
             // cbobusqueda
             // 
@@ -321,6 +322,7 @@
             this.txtcodigo.Name = "txtcodigo";
             this.txtcodigo.Size = new System.Drawing.Size(168, 23);
             this.txtcodigo.TabIndex = 32;
+            this.txtcodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtcodigo_KeyDown);
             // 
             // label4
             // 
@@ -486,11 +488,14 @@
             // 
             // txtpreciocompra
             // 
+            this.txtpreciocompra.BackColor = System.Drawing.Color.Silver;
+            this.txtpreciocompra.Enabled = false;
             this.txtpreciocompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpreciocompra.Location = new System.Drawing.Point(22, 223);
             this.txtpreciocompra.Name = "txtpreciocompra";
             this.txtpreciocompra.Size = new System.Drawing.Size(168, 23);
             this.txtpreciocompra.TabIndex = 59;
+            this.txtpreciocompra.Text = "0";
             this.txtpreciocompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpreciocompra_KeyPress);
             // 
             // label5
@@ -510,6 +515,7 @@
             this.txtprecioventa.Name = "txtprecioventa";
             this.txtprecioventa.Size = new System.Drawing.Size(168, 23);
             this.txtprecioventa.TabIndex = 61;
+            this.txtprecioventa.Text = "0";
             this.txtprecioventa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtprecioventa_KeyPress);
             // 
             // label6
