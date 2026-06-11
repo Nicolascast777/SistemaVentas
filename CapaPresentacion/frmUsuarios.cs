@@ -15,10 +15,13 @@ using CapaNegocio;
 
 
 namespace CapaPresentacion
-{
+{//ADICIONAL
     public partial class frmUsuarios : Form
-
+    //public partial class frmUsuarios : FormBase
+    //ADICIONAL<--
     {
+
+    
         public frmUsuarios()
         {
             InitializeComponent();
