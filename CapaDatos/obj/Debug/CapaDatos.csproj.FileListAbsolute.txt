@@ -16,3 +16,12 @@ G:\PROYECTO SENA\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
 G:\PROYECTO SENA\CapaDatos\obj\Debug\CapaDatos.csproj.Up2Date
 G:\PROYECTO SENA\CapaDatos\obj\Debug\CapaDatos.dll
 G:\PROYECTO SENA\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\cpelv\Documents\SENA\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\cpelv\Documents\SENA\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\cpelv\Documents\SENA\CapaDatos\bin\Debug\CapaEntidad.dll
+C:\Users\cpelv\Documents\SENA\CapaDatos\bin\Debug\CapaEntidad.pdb
+C:\Users\cpelv\Documents\SENA\CapaDatos\obj\Debug\CapaDatos.csproj.AssemblyReference.cache
+C:\Users\cpelv\Documents\SENA\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\cpelv\Documents\SENA\CapaDatos\obj\Debug\CapaDatos.csproj.Up2Date
+C:\Users\cpelv\Documents\SENA\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\cpelv\Documents\SENA\CapaDatos\obj\Debug\CapaDatos.pdb
