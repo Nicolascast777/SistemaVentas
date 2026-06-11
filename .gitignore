@@ -10,3 +10,20 @@ packages/
 # Archivos temporales de SQL Server (si usas bases de datos locales en la carpeta)
 *.mdf
 *.ldf
+
+# Visual Studio
+.vs/
+
+# Compilados
+bin/
+obj/
+
+# Archivos de usuario
+*.user
+*.suo
+
+# Símbolos de depuración
+*.pdb
+
+# Logs
+*.log
