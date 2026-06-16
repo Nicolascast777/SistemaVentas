@@ -130,7 +130,7 @@
   <data name="btnlimpiarbuscador.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAAKVJREFUOE/VkmENgzAQRitgBjCAgRlAAQpwgAMszMtMzMXMwPeSfklXjgZ+7Acv
+        wAAADsABataJCQAAAKVJREFUOE/VkmENgzAQRitgBjCAgRlAAQpwgAMszMtMzMXMwPeSfklXjgZ+7Acv
         eaG01+tdIf2DTk7ynZ3z3ClGuR64yCatzZZqQh7SQR/Z5yfvjF95jGE7g3QA/QNJ2QzM1es/UJoDkHZM
         mRypZkedwCcDlbgdDC/zKR3g03l6HK3vqE8px+UaFYVQtoOO5D6akIS/r974lbRxGhLxufDSxtuR0gZy
         b0qBfao75wAAAABJRU5ErkJggg==
@@ -148,22 +148,10 @@
   <metadata name="SubTotal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Producto.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Precio.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Cantidad.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="SubTotal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="btndescargar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAAK5JREFUOE/dk2sRhCAYRQlggS1gAXuYwAbbwApWMIMlbGEZ9x4HZhR5fPzdO3MG
+        wAAADsABataJCQAAAK5JREFUOE/dk2sRhCAYRQlggS1gAXuYwAbbwApWMIMlbGEZ9x4HZhR5fPzdO3MG
         QTg8FHfLVxxiy3B6RlEMIsgFSe/LoswiIlWZVUSCjPKVnCgIKGMG8UpOxEGnQnuTaPFlnCZRJ9jC56o9
         0ySizoGyKqT3mEUMXAWfefbPrG4XrNAkYhUMjjsiD21VEbMx+yRKMYmq90kpingZhDW44EkR58KWkFmg
         b+q3+K849wM/LD6e04lIcwAAAABJRU5ErkJggg==

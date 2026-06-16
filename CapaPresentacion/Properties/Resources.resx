@@ -133,6 +133,115 @@
   <data name="PlantillaCompra" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PlantillaCompra.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="PlantillaVenta" xml:space="preserve">
+    <value>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Web Page Design&lt;/title&gt;
+    &lt;style&gt;
+        table.border {
+            border-collapse: collapse;
+        }
+
+            table.border th {
+                text-align: center;
+                padding: 5px;
+                border: 1px solid black;
+            }
+
+            table.border td {
+                text-align: center;
+                padding: 5px;
+                border: 1px solid black;
+            }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;table border="0" style="width:100%"&gt;
+        &lt;tr&gt;
+
+            &lt;td style="width:15%" valign="top"&gt;&lt;/td&gt;
+            &lt;td style="width:60%" valign="top" align="center"&gt;
+
+                &lt;label style="font-size:20px;font-weight:bold;margin-bottom:10px"&gt;@nombrenegocio&lt;/label&gt;&lt;br /&gt;
+                &lt;div style="height:12px !important"&gt;&lt;/div&gt;
+                &lt;label style="font-size:11px;"&gt;RUC: @docnegocio&lt;/label&gt;&lt;br /&gt;
+                &lt;label style="font-size:11px;"&gt;Dirección: @direcnegocio&lt;/label&gt;&lt;br /&gt;
+            &lt;/td&gt;
+            &lt;td style="width:25%;" align="right" valign="top"&gt;
+                &lt;table style="width:100%" class="border"&gt;
+                    &lt;tr&gt;
+                        &lt;td align="center" style="background-color:#CACACA"&gt;
+                            &lt;label style="font-size:15px;font-weight:bold"&gt;@tipodocumento&lt;/label&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td align="center"&gt;
+                            &lt;label style="font-size:15px;font-weight:bold"&gt;@numerodocumento&lt;/label&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/table&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;div style="height:15px !important"&gt;&lt;/div&gt;
+    &lt;hr /&gt;
+
+    &lt;table border="0" style="width:100%"&gt;
+        &lt;tr&gt;
+            &lt;td style="width:20%"&gt;&lt;label style="font-size:12px;font-weight:bold"&gt;Documento Cliente:&lt;/label&gt;&lt;/td&gt;
+			&lt;td style="width:20%"&gt;&lt;label style="font-size:12px;"&gt;@doccliente&lt;/label&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td style="width:20%"&gt;&lt;label style="font-size:12px;font-weight:bold"&gt;Nombre Cliente:&lt;/label&gt;&lt;/td&gt;
+			&lt;td style="width:20%"&gt;&lt;label style="font-size:12px;"&gt;@nombrecliente&lt;/label&gt;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td style="width:20%"&gt;&lt;label style="font-size:12px;font-weight:bold"&gt;Fecha Registro:&lt;/label&gt;&lt;/td&gt;
+            &lt;td style="width:20%"&gt;&lt;label style="font-size:12px;"&gt;@fecharegistro&lt;/label&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td style="width:20%"&gt;&lt;label style="font-size:12px;font-weight:bold"&gt;Usuario Registro:&lt;/label&gt;&lt;/td&gt;
+            &lt;td style="width:20%"&gt;&lt;label style="font-size:12px;"&gt;@usuarioregistro&lt;/label&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+
+
+    &lt;/table&gt;
+    &lt;div style="height:15px !important"&gt;&lt;/div&gt;
+    &lt;table style="width:100%;font-size:12px;" class="border"&gt;
+        &lt;thead&gt;
+            &lt;tr style="background-color:#CACACA"&gt;
+                &lt;th&gt;Producto&lt;/th&gt;
+				&lt;th&gt;Precio&lt;/th&gt;
+                &lt;th&gt;Cantidad&lt;/th&gt;
+                &lt;th&gt;Sub Total&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            @filas
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+
+    &lt;div style="height:15px !important"&gt;&lt;/div&gt;
+    &lt;table style="width:35%;font-size:12px;" class="border"&gt;
+        &lt;thead&gt;
+            &lt;tr style="background-color:#CACACA"&gt;
+                &lt;th&gt;Monto Total&lt;/th&gt;
+                &lt;th&gt;Pago Con&lt;/th&gt;
+                &lt;th&gt;Cambio&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;@montototal&lt;/td&gt;
+                &lt;td&gt;@pagocon&lt;/td&gt;
+                &lt;td&gt;@cambio&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</value>
+  </data>
   <data name="_10k" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\10k.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

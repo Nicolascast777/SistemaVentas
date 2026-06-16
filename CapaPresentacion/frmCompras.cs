@@ -47,6 +47,49 @@ namespace CapaPresentacion
             CN_Compra oCompra = new CN_Compra();
             txtrendimiento.Value = Convert.ToDecimal(oCompra.ObtenerPorcentajeRendimientoNegocio(txtrendimiento.Value));
             //adicional<-
+
+
+
+
+
+            //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            //dgvdata.ReadOnly = true;
+            //dgvdata.AllowUserToAddRows = false;
+            //dgvdata.AllowUserToDeleteRows = false;
+            //dgvdata.AllowUserToResizeColumns = false;
+            //dgvdata.AllowUserToResizeRows = false;
+
+            //dgvdata.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //dgvdata.MultiSelect = false;
+
+            //dgvdata.EnableHeadersVisualStyles = false;
+            //dgvdata.RowHeadersVisible = false;
+            //dgvdata.BorderStyle = BorderStyle.None;
+
+            //// Encabezado
+            //dgvdata.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(44, 62, 80); // Azul acero oscuro
+            //dgvdata.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
+            //// Filas
+            //dgvdata.RowsDefaultCellStyle.BackColor = Color.FromArgb(245, 248, 250);       // Claro
+            //dgvdata.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(230, 236, 242);
+
+            //// Selección
+            //dgvdata.DefaultCellStyle.SelectionBackColor = Color.FromArgb(70, 130, 180);   // SteelBlue
+            //dgvdata.DefaultCellStyle.SelectionForeColor = Color.White;
+
+
+
+
+
+            //dgvdata.BorderStyle = BorderStyle.FixedSingle;
+            //dgvdata.GridColor = Color.LightSteelBlue;
+            //dgvdata.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+
+
+
+            //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
@@ -377,7 +420,8 @@ namespace CapaPresentacion
                 NumeroDocumento = numeroDocumento,
                 MontoTotal = Convert.ToDecimal(txttotalpagar.Text)
                 //Adicional
-                ,PorcentajeRendimiento = Convert.ToDecimal(txtrendimiento.Text)
+                ,
+                PorcentajeRendimiento = Convert.ToDecimal(txtrendimiento.Text)
                 //Adicional<.
             };
             

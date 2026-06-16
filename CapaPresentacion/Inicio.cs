@@ -25,7 +25,7 @@ namespace CapaPresentacion
 
             if (objusuario == null)
                 //SI NO SE RECIBE UN USUARIO, SE CREA UNO PREDEFINIDO PARA QUE EL SISTEMA FUNCIONE CORRECTAMENTE (ESTO ES SOLO PARA PRUEBAS, EN UN ENTORNO REAL NO DEBERIA EXISTIR ESTA OPCION)
-                usuarioActual = new Usuario() { NombreCompleto = "ADMIN PREDEFINIDO",IdUsuario = 1 };
+                usuarioActual = new Usuario() { NombreCompleto = "ADMIN.",IdUsuario = 1 };
             else
                 usuarioActual = objusuario;
 

@@ -157,45 +157,45 @@
   <data name="btnlimpiarbuscador.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAAKNJREFUOE/VklENAjEQREcABs4ABjCAglOAAxycBbxgAheYgbykm8xtl6Z88MFL
-        Ju11u9vZXqUfsEi6SLo3XdvaFKuk1wdteXNmlBzCTcnBNj0kHdvIN/Obxct2zraB/oGiJANrOb4Da26V
-        dgIvjnDTkQvEyYCTaAeVl3kqTmeMeRXvyKf43GM4KsG2t1GJ+xhCEV5fTny2NqahEL8LfZX4h7wBcm9K
-        gVuFbtwAAAAASUVORK5CYII=
+        vgAADr4B6kKxwAAAAKVJREFUOE/VkmENgzAQRitgBjCAgRlAAQpwgAMszMtMzMXMwPeSfklXjgZ+7Acv
+        eaG01+tdIf2DTk7ynZ3z3ClGuR64yCatzZZqQh7SQR/Z5yfvjF95jGE7g3QA/QNJ2QzM1es/UJoDkHZM
+        mRypZkedwCcDlbgdDC/zKR3g03l6HK3vqE8px+UaFYVQtoOO5D6akIS/r974lbRxGhLxufDSxtuR0gZy
+        b0qBfao75wAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="btnbuscar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAAKBJREFUOE/NkVENhDAQREcABs4ABjCAglOAAxxgAQun4Uzg4sxAXtJJyoZSwg/3
-        kv3otp2daaV/4yVplvSTtEr6SOrjoRJtukQh8M3WiFbx1HfWw9GS+qdO2OTQGDeSiOMU4SKHuriRcJwi
-        Q8Um8agitsmkCG9y6SGnTAQnxHG0M3c7LJKXf4fiq6sQhzdhuqc6xmWRIyyCy9vgronNZ9kA7qMtm7R9
-        AQwAAAAASUVORK5CYII=
+        vgAADr4B6kKxwAAAAKRJREFUOE/NkX8NgzAUhCsAAxjAwAxMAQrmYA6wMAtomIm5wAzc1+YSfqwt4S++
+        5BIebe/da8PtaKWPNEmzNEpP6RSdxCGEwXdVY1rFXftYJUj0k/hfTMIim96x2oIJa4yThYNsesTqiMfJ
+        8pJKMRkPZXFMOu3hTlirXuQg2YQkjOPRSuk22GQtvw7iqaswDndCd3f1GKdN/mETUl6GdE36vAchLO6j
+        LZv5zeM2AAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="btneliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAAKFJREFUOE/tkmENwkAMhSdgBjCAgRmYAhTMwRygBQ2YwAVivpKXtMvxWGCE8Ifw
-        kqa5Xvu111zXfVvALiKGxnrPeamEBHBOu8g8b1XqWN2BowA2kcBTnb1+ETAr+Q09h2kSj7eqST1+pwJp
-        R8BBz9Vz6i79dlDuqXYUuiv/By3L3gMn+Y9AHm+1CRQRI3BN4KppMn0Pr32Q/o0XG2j0mh/XDTRxnROi
-        4hQHAAAAAElFTkSuQmCC
+        vgAADr4B6kKxwAAAAJ5JREFUOE/tUFENhDAUmwAMzAAGMHAKTsEc4AAtaDgTuEDMHm3SRwg3yMjlvqBJ
+        0zSvr29Z+DtyztHMug0bjeqhEoN+xInU+By8qMsdlgYWuBdZnNxr7RsI9QxfwHkZXyJbhL9UtgwvAiP4
+        xkIDTT6T1hcx6AoaZ65P0frZLThSfyqSLaKqCIEXgrMKi+TLoFErx0AobRf35DFF74EQFjRxnRN8nG3H
+        AAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="btnlimpiar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAALVJREFUOE/VklENwzAMRAtgBEZgBEagCIqgDMZgFMqlJMZiYJ6rixzJcZNpH/vZ
-        k6q48Z3tNJ2mXwNcgRXY/XloL+u6AIsNAJ5Z3/DJXNE02Vcws0sQvYCbVn9XvIX8+ThmNgfBWovKrFh7
-        Od+g0arARUvNxeKe21p3v0DpLHySchzPnT+mmd2DoHTXWuNe/kTuEuOY00TZW9DYQTRizr4Gv7I9u4C3
-        jpH1Q7yQfmdd3/fG/+QAd5qPyy/sZS0AAAAASUVORK5CYII=
+        vgAADr4B6kKxwAAAAMJJREFUOE/Vkl0RwzAMgwMgBEagBEqgCIqgDMpgFMqlJMZiYNJJjrrMlyzbw172
+        3fniWLKT/oSfk1K6IBbErlhZk9wHxvl4A7SrbG16zSe8jeweaDFbzHRDDFy1Z76ZCJDXj4P6lGUzLKpF
+        NjNnLatFd6C4SjewnyW54QTaJqnQGGAnE2x5E3scgrx+maiPWS6ncz1zlCu9AoI7RanlrxqIavHANMjQ
+        Y5K9DYcgdpmfoHbHMsr2GQ3i78zP933jPxLCA3eaj8tt/t4cAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="btnguardar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAAGNJREFUOE/t0MENgCAQBVEKsAEbsAH7sBE7oBZrsMT5hgTIupogB0/6brDMHgjh
-        G4AF2CUNftaUYmXA5ucnwApM5lzjvKDOLoBoH3bFiQ+sZlzcLXkcF+7T+uJC0gyM/v73kgODl5vkKmnX
-        xgAAAABJRU5ErkJggg==
+        vgAADr4B6kKxwAAAAGFJREFUOE9jGCHg379/fkC87v///zxQIeIBSDNQIxgA2XOgwtgBUEE2EKtBuSia
+        QQBZDgMAJaug6sAKSdIMAugakAFBzTCAzRCiNcMAsiEka4YBoF5joGZJKHcU0BYwMAAAg5eb5ARHWK8A
+        AAAASUVORK5CYII=
 </value>
   </data>
 </root>

@@ -36,18 +36,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnlimpiarbuscador = new FontAwesome.Sharp.IconButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtusuario = new System.Windows.Forms.TextBox();
-            this.txttipodocumento = new System.Windows.Forms.TextBox();
-            this.txtfecha = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtfecha = new System.Windows.Forms.TextBox();
+            this.txttipodocumento = new System.Windows.Forms.TextBox();
+            this.txtusuario = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtnumerodocumento = new System.Windows.Forms.TextBox();
-            this.txtnombrecliente = new System.Windows.Forms.TextBox();
-            this.txtdoccliente = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.txtdoccliente = new System.Windows.Forms.TextBox();
+            this.txtnombrecliente = new System.Windows.Forms.TextBox();
+            this.txtnumerodocumento = new System.Windows.Forms.TextBox();
             this.dgvdata = new System.Windows.Forms.DataGridView();
             this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,7 +96,6 @@
             this.btnbuscarproveedor.Size = new System.Drawing.Size(80, 23);
             this.btnbuscarproveedor.TabIndex = 9;
             this.btnbuscarproveedor.UseVisualStyleBackColor = false;
-            this.btnbuscarproveedor.Click += new System.EventHandler(this.btnbuscarproveedor_Click);
             // 
             // txtbusqueda
             // 
@@ -148,39 +147,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información venta";
             // 
-            // txtusuario
+            // label3
             // 
-            this.txtusuario.BackColor = System.Drawing.Color.White;
-            this.txtusuario.Location = new System.Drawing.Point(438, 36);
-            this.txtusuario.Name = "txtusuario";
-            this.txtusuario.Size = new System.Drawing.Size(171, 20);
-            this.txtusuario.TabIndex = 59;
-            // 
-            // txttipodocumento
-            // 
-            this.txttipodocumento.BackColor = System.Drawing.Color.White;
-            this.txttipodocumento.Location = new System.Drawing.Point(235, 36);
-            this.txttipodocumento.Name = "txttipodocumento";
-            this.txttipodocumento.Size = new System.Drawing.Size(171, 20);
-            this.txttipodocumento.TabIndex = 58;
-            // 
-            // txtfecha
-            // 
-            this.txtfecha.BackColor = System.Drawing.Color.White;
-            this.txtfecha.Location = new System.Drawing.Point(6, 36);
-            this.txtfecha.Name = "txtfecha";
-            this.txtfecha.Size = new System.Drawing.Size(171, 20);
-            this.txtfecha.TabIndex = 57;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(435, 20);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 13);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Usuario:";
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(6, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Fecha:";
             // 
             // label4
             // 
@@ -192,15 +167,39 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Tipo Soporte/Documento";
             // 
-            // label3
+            // label6
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(6, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Fecha:";
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(435, 20);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Usuario:";
+            // 
+            // txtfecha
+            // 
+            this.txtfecha.BackColor = System.Drawing.Color.White;
+            this.txtfecha.Location = new System.Drawing.Point(6, 36);
+            this.txtfecha.Name = "txtfecha";
+            this.txtfecha.Size = new System.Drawing.Size(171, 20);
+            this.txtfecha.TabIndex = 57;
+            // 
+            // txttipodocumento
+            // 
+            this.txttipodocumento.BackColor = System.Drawing.Color.White;
+            this.txttipodocumento.Location = new System.Drawing.Point(235, 36);
+            this.txttipodocumento.Name = "txttipodocumento";
+            this.txttipodocumento.Size = new System.Drawing.Size(171, 20);
+            this.txttipodocumento.TabIndex = 58;
+            // 
+            // txtusuario
+            // 
+            this.txtusuario.BackColor = System.Drawing.Color.White;
+            this.txtusuario.Location = new System.Drawing.Point(438, 36);
+            this.txtusuario.Name = "txtusuario";
+            this.txtusuario.Size = new System.Drawing.Size(171, 20);
+            this.txtusuario.TabIndex = 59;
             // 
             // groupBox2
             // 
@@ -216,30 +215,6 @@
             this.groupBox2.TabIndex = 57;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Información Cliente";
-            // 
-            // txtnumerodocumento
-            // 
-            this.txtnumerodocumento.BackColor = System.Drawing.Color.Aqua;
-            this.txtnumerodocumento.Location = new System.Drawing.Point(576, 6);
-            this.txtnumerodocumento.Name = "txtnumerodocumento";
-            this.txtnumerodocumento.Size = new System.Drawing.Size(33, 20);
-            this.txtnumerodocumento.TabIndex = 63;
-            // 
-            // txtnombrecliente
-            // 
-            this.txtnombrecliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(242)))));
-            this.txtnombrecliente.Location = new System.Drawing.Point(235, 31);
-            this.txtnombrecliente.Name = "txtnombrecliente";
-            this.txtnombrecliente.Size = new System.Drawing.Size(171, 20);
-            this.txtnombrecliente.TabIndex = 62;
-            // 
-            // txtdoccliente
-            // 
-            this.txtdoccliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(242)))));
-            this.txtdoccliente.Location = new System.Drawing.Point(6, 31);
-            this.txtdoccliente.Name = "txtdoccliente";
-            this.txtdoccliente.Size = new System.Drawing.Size(171, 20);
-            this.txtdoccliente.TabIndex = 60;
             // 
             // label7
             // 
@@ -260,6 +235,30 @@
             this.label8.Size = new System.Drawing.Size(100, 13);
             this.label8.TabIndex = 60;
             this.label8.Text = "Documento Cliente:";
+            // 
+            // txtdoccliente
+            // 
+            this.txtdoccliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(242)))));
+            this.txtdoccliente.Location = new System.Drawing.Point(6, 31);
+            this.txtdoccliente.Name = "txtdoccliente";
+            this.txtdoccliente.Size = new System.Drawing.Size(171, 20);
+            this.txtdoccliente.TabIndex = 60;
+            // 
+            // txtnombrecliente
+            // 
+            this.txtnombrecliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(242)))));
+            this.txtnombrecliente.Location = new System.Drawing.Point(235, 31);
+            this.txtnombrecliente.Name = "txtnombrecliente";
+            this.txtnombrecliente.Size = new System.Drawing.Size(171, 20);
+            this.txtnombrecliente.TabIndex = 62;
+            // 
+            // txtnumerodocumento
+            // 
+            this.txtnumerodocumento.BackColor = System.Drawing.Color.Aqua;
+            this.txtnumerodocumento.Location = new System.Drawing.Point(576, 6);
+            this.txtnumerodocumento.Name = "txtnumerodocumento";
+            this.txtnumerodocumento.Size = new System.Drawing.Size(33, 20);
+            this.txtnumerodocumento.TabIndex = 63;
             // 
             // dgvdata
             // 
@@ -364,7 +363,6 @@
             this.btndescargar.TabIndex = 66;
             this.btndescargar.Text = "Descargar PDF";
             this.btndescargar.UseVisualStyleBackColor = true;
-            this.btndescargar.Click += new System.EventHandler(this.btndescargar_Click);
             // 
             // frmDetalleVenta
             // 
